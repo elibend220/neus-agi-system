@@ -1,0 +1,10 @@
+# Configuration for neus-agi-system
+project:
+  name: "neus-agi-system"
+  version: "0.1.0"
+logging:
+  level: "INFO"
+  file: logs/neus.log
+model:
+  device: "cpu"
+  seed: 42

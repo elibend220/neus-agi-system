@@ -1,0 +1,8 @@
+# Core dependencies (placeholders)
+numpy>=1.25
+torch>=2.0
+transformers
+pyyaml
+
+# Dev / testing
+pytest
