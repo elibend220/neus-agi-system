@@ -1,10 +1,10 @@
-import json
+﻿import json
 from core.memory import Memory
 from core.task_dispatcher import TaskDispatcher
 from utils.logger import Logger
 
 class CoreManager:
-    def __init__(self, use_real_ai=False):
+    def __init__(self, use_real_ai=True):
         self.logger = Logger()
         self.memory = Memory()
         self.use_real_ai = use_real_ai
