@@ -10,10 +10,10 @@ def main():
     parser = argparse.ArgumentParser(description="NEUS AGI System")
     parser.add_argument("--mode", type=str, default="interactive", help="v2.5, v3.0, or interactive")
     parser.add_argument("--interval", type=int, default=60)
-    parser.add_argument("--real", action="store_true")
+    parser.add_argument("--mock", action="store_true")
     args = parser.parse_args()
 
-    core = CoreManager(use_real_ai=args.real)
+    core = CoreManager(use_real_ai=not args.mock)
 
     if args.mode == "v2.5":
         agent = AgentV2_5(core=core)
