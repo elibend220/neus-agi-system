@@ -1,7 +1,23 @@
-.pytest_cache/
+# Python
 __pycache__/
 *.pyc
-.env
+*.pyo
+*.pyd
+*.env
+*.venv
 venv/
-.ipynb_checkpoints/
-logs/
+ENV/
+env/
+*.sqlite3
+
+# Cache / Logs
+cache/
+data/logs/
+data/build_logs/
+data/backups/
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
