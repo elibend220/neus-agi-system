@@ -28,3 +28,24 @@ class CoreManager:
     def process(self, instruction):
         self.logger.log(f"Processing instruction: {instruction}")
         return self.dispatcher.dispatch(instruction)
+    def auto_improve(self):
+        """Trigger self-improvement via SelfBuilder and reload modules."""
+        from core.self_builder import SelfBuilder
+        self.logger.log("Analyzing")
+        perf = self.memory.get("performance_metrics", [])[-10:]
+        recent = self.memory.get_all()
+        builder = SelfBuilder(root=".")
+        self.logger.log("Generating improvements")
+        result = builder.run(adapter=self.dispatcher._adapter, agent_name="core_manager", recent_memory=recent, performance=perf)
+        self.logger.log("Applying patches")
+        # patches already applied by builder
+        self.logger.log("Reloading modules")
+        import importlib
+        importlib.invalidate_caches()
+        try:
+            importlib.import_module("core.core_manager")
+        except Exception as e:
+            self.logger.log(f"Reload error: {e}")
+        self.logger.log("Self-upgrade complete.")
+        self.memory.set("last_self_improve", result)
+        return result
