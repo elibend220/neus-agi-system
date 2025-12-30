@@ -3,6 +3,7 @@ numpy>=1.25
 torch>=2.0
 transformers
 pyyaml
+pyautogen>=0.2.35,<0.3.0
 
 # Dev / testing
 pytest
