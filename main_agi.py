@@ -1,18 +1,31 @@
 #!/usr/bin/env python3
 """
-AGI System - Main entry point demonstrating Phases 1 & 2.
+AGI System - Integrated Neus + AGI Framework.
 
-This shows how to:
+Demonstrates:
 1. Initialize LLM providers
 2. Set up memory and knowledge management
-3. Create and register agents (NLP + Knowledge)
+3. Create and register all agent types (AGI + Neus)
 4. Configure multi-agent coordination
-5. Run the AGI pipeline with knowledge retrieval
+5. Run the full integrated pipeline
+
+Architecture:
+Phase 1: NLP Processing (AGI Framework)
+Phase 2: Knowledge Retrieval (AGI Framework)
+Phase 3: Consciousness/Metacognition (Neus)
+Phase 3: Multi-modal Reasoning (Neus)
+Phase 3: Creative Solutions (Neus)
 """
 
 import sys
 from src.core import MemoryManager, UnifiedState
-from src.agents import NLPAgent, KnowledgeAgent
+from src.agents import (
+    NLPAgent,
+    KnowledgeAgent,
+    NeusConsciousnessAgent,
+    NeusReasoningAgent,
+    NeusCreativityAgent,
+)
 from src.coordinator import AgentCoordinator
 from src.graph import GraphBuilder
 from src.knowledge import KnowledgeBase
