@@ -1,8 +1,6 @@
-# Core dependencies (placeholders)
-numpy>=1.25
-torch>=2.0
-transformers
-pyyaml
-
-# Dev / testing
-pytest
+langgraph>=1.2,<2.0
+langchain-core>=1.4,<2.0
+langchain-ollama>=1.1,<2.0
+anthropic>=0.26,<1.0
+pytest>=9.0,<10.0
+python-dotenv>=1.0,<2.0
