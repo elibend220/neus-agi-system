@@ -217,3 +217,22 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for detailed extension guide.
 ## License
 
 See LICENSE file.
+
+## Autonomy Layer (`src/autonomy/`)
+
+A bounded, goal-driven agent loop: plan, act, observe, verify, learn.
+
+```bash
+python run_autonomous.py "Summarize the files in the workspace" --claude
+python run_autonomous.py --resume
+```
+
+Design guarantees:
+- Hard budgets: total steps, steps per goal, wall-clock time.
+- Persistent goals and lessons in `.neus_state/` (survive restarts).
+- Critic pass verifies every answer before a goal is marked done.
+- Repetition detection and subgoal depth cap prevent runaway loops.
+- Tools are sandboxed: safe calculator, workspace-confined file IO, memory recall. No shell, no network.
+- `GatedImprover` applies self-modifications only after baseline and patched test suites pass in an isolated copy, with backups and rollback. The gate itself, `tests/` and `.github/` are protected from agent edits.
+
+This is an autonomy scaffold, not general intelligence: capability is bounded by the underlying model.
