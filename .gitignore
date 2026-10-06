@@ -21,3 +21,6 @@ data/backups/
 .idea/
 *.sublime-project
 *.sublime-workspace
+.neus_state/
+.neus_workspace/
+.neus_backups/
